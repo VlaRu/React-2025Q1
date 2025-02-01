@@ -1,5 +1,5 @@
 # React-2025Q1
-## This repository of will includes tasks as:
+## This repository will include tasks such as:
 - Class components. Error boundary.
 - React Routing. Tests.
 - Redux. Redux Toolkit, RTK Query. Context api
