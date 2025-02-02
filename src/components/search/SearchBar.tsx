@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import FetchData from '../../api/fetchData';
+import './Search.css';
 
 type NameData = {
   searchName: string,
@@ -37,14 +38,14 @@ export class Search extends Component<Record<string, never>, NameData> {
   render() {
     return (
       <>
-        <form onSubmit={this.submitSearch}>
+        <form onSubmit={this.submitSearch} className="search-form">
           <input
             placeholder="Search..."
             value={this.state.searchName}
             onChange={this.handleSearchChange}
             className="input-search"
           />
-          <input type="submit" value="submit" className="submit-search-btn" />
+          <input type="submit" value="search" className="submit-search-btn" />
         </form>
         <FetchData query={this.state.submitName.replace(/\s+/g, '')} />
       </>

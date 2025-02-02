@@ -5,10 +5,10 @@ import { Search } from '../components/search/SearchBar';
 class App extends Component {
   render() {
     return (
-      <>
-        <p className="read-the-docs">Searching your pokemon!</p>
+      <main className="main-container">
+        <h1 className="header">Search pokemon!</h1>
         <Search />
-      </>
+      </main>
     );
   }
 }

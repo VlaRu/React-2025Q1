@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './CardsResults.css';
 
 export type pokemonType = {
   name: string,
