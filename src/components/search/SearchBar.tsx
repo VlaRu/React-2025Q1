@@ -3,7 +3,7 @@ import FetchData from '../../api/fetchData';
 
 type NameData = {
   searchName: string,
-  submitName: string,
+  submitName: string
 };
 
 export class Search extends Component<Record<string, never>, NameData> {
@@ -12,7 +12,7 @@ export class Search extends Component<Record<string, never>, NameData> {
     const localState = localStorage.getItem('name') || '';
     this.state = {
       searchName: localState || '',
-      submitName: localState || '',
+      submitName: localState || ''
     };
   }
 
@@ -23,14 +23,14 @@ export class Search extends Component<Record<string, never>, NameData> {
   submitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     this.setState({
-      submitName: this.state.searchName,
+      submitName: this.state.searchName
     });
     localStorage.setItem('name', this.state.searchName as string);
   };
 
   handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
-      searchName: e.target.value,
+      searchName: e.target.value
     });
   };
 

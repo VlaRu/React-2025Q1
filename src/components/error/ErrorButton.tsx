@@ -2,12 +2,12 @@ import React from 'react';
 
 export default class ErrorButton extends React.Component {
   state = {
-    isError: false,
+    isError: false
   };
 
   handleClick = () => {
     this.setState({
-      isError: true,
+      isError: true
     });
   };
 

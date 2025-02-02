@@ -6,8 +6,8 @@ export type pokemonType = {
   flavorText: string,
   images: {
     small?: string,
-    large?: string,
-  },
+    large?: string
+  }
 };
 
 export interface CreateCardsProps {

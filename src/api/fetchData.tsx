@@ -4,12 +4,12 @@ import spinner from './../assets/spinner.svg';
 import { URL } from './constants';
 
 type DataFetchingProps = {
-  query: string,
+  query: string
 };
 
 type DataFetchingState = {
   pokemonData: pokemonType[],
-  isFetching: boolean,
+  isFetching: boolean
 };
 
 export default class FetchData extends Component<
@@ -18,7 +18,7 @@ export default class FetchData extends Component<
 > {
   state = {
     pokemonData: [],
-    isFetching: false,
+    isFetching: false
   };
 
   componentDidMount() {
