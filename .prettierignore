@@ -1,0 +1,19 @@
+node_modules
+# Ignore artifacts:
+dist
+coverage
+test-config
+.vscode
+.prettierrc
+.prettierignore
+.gitignore
+tsconfig.node.json
+tsconfig.json
+tsconfig.app.json
+README.md
+package.json
+package-lock.json
+.husky/
+.github/
+**/*.css
+index.html
