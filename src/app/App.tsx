@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+import { Search } from '../components/search/SearchBar';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
         <p className="read-the-docs">
           Click on the Vite and React logos to learn more
         </p>
+        <Search />
       </>
     );
   }
