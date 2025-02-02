@@ -17,4 +17,4 @@ package-lock.json
 .github/
 **/*.css
 index.html
-.vite/deps
+.vite/deps/
