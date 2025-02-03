@@ -18,3 +18,4 @@ package-lock.json
 **/*.css
 index.html
 .vite/deps/
+assets/
