@@ -8,13 +8,17 @@ interface State {
   hasError: boolean;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true };
+class ErrorBoundary extends Component<Props, State> {
+  state: State = {
+    hasError: false
+  };
+
+  static getDerivedStateFromError(error: Error): State {
     console.log(error);
+    return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo);
   }
 
@@ -26,11 +30,16 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <>
-          <h1>Something went wrong.</h1>
-          <button onClick={this.reloadPage}>return</button>
+          <h1>Sorry.. there was an error</h1>
+          <button onClick={this.reloadPage} className="error-btn">
+            return
+          </button>
         </>
       );
     }
+
     return this.props.children;
   }
 }
+
+export default ErrorBoundary;
