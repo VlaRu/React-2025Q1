@@ -42,3 +42,8 @@ npm run format:fix
 npm run lint
 ```
 Eslint check for errors and coding style issues.
+
+```sh
+npm husky init
+```
+Setting up husky in a project
