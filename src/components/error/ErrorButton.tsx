@@ -16,11 +16,9 @@ export default class ErrorButton extends React.Component {
       throw new Error('The error was occured');
     }
     return (
-      <div>
-        <button onClick={this.handleClick} className="error-btn">
-          Show error
-        </button>
-      </div>
+      <button onClick={this.handleClick} className="error-btn">
+        Show error
+      </button>
     );
   }
 }

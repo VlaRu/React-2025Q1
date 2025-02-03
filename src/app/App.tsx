@@ -6,11 +6,11 @@ import ErrorButton from '../components/error/ErrorButton';
 class App extends Component {
   render() {
     return (
-      <main className="main-container">
+      <div className="container">
         <ErrorButton />
         <h1 className="header">Search pokemon!</h1>
         <Search />
-      </main>
+      </div>
     );
   }
 }

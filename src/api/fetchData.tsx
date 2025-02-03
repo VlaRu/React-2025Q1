@@ -50,13 +50,15 @@ export default class FetchData extends Component<
     const { pokemonData, isFetching } = this.state;
 
     return (
-      <div>
+      <main>
         {isFetching ? (
-          <img src={spinner} alt="Loading..." />
+          <div className="spinner-container">
+            <img src={spinner} alt="Loading..." />
+          </div>
         ) : (
           <Cards data={pokemonData} />
         )}
-      </div>
+      </main>
     );
   }
 }
