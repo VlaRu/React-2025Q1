@@ -30,8 +30,10 @@ export class Search extends Component<Record<string, never>, NameData> {
   };
 
   handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = e.target.value;
+    const sanitizedValue = value.replace(/[^a-zA-Z0-9\s]/g, '');
     this.setState({
-      searchName: e.target.value
+      searchName: sanitizedValue
     });
   };
 
