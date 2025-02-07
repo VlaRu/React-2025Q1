@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import Cards, { pokemonType } from '../components/results/CardsResults';
 import spinner from './../assets/spinner.svg';
 import { URL } from './constants';
@@ -12,53 +12,41 @@ type DataFetchingState = {
   isFetching: boolean
 };
 
-export default class FetchData extends Component<
-  DataFetchingProps,
-  DataFetchingState
-> {
-  state = {
+export default function FetchData({ query }: DataFetchingProps) {
+  const [dataFetch, setDataFetch] = useState<DataFetchingState>({
     pokemonData: [],
     isFetching: false
-  };
+  });
 
-  componentDidMount() {
-    this.fetchData(this.props.query);
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      setDataFetch((prevState) => ({ ...prevState, isFetching: true }));
+      const queryString = query ? `q=name:${query}*` : '';
+      fetch(`${URL}${queryString}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setDataFetch({ pokemonData: data.data, isFetching: false });
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+          setDataFetch((prevState) => ({ ...prevState, isFetching: true }));
+        });
+    };
 
-  componentDidUpdate(prevProps: DataFetchingProps) {
-    if (prevProps.query !== this.props.query) {
-      this.fetchData(this.props.query);
+    if (query) {
+      fetchData();
     }
-  }
+  }, [query]);
 
-  fetchData(query: string) {
-    this.setState({ isFetching: true });
-    const queryString = query ? `q=name:${query}*` : '';
-    fetch(`${URL}${queryString}`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({ isFetching: false });
-        this.setState({ pokemonData: data.data });
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        this.setState({ isFetching: true });
-      });
-  }
-
-  render() {
-    const { pokemonData, isFetching } = this.state;
-
-    return (
-      <main>
-        {isFetching ? (
-          <div className="spinner-container">
-            <img src={spinner} alt="Loading..." />
-          </div>
-        ) : (
-          <Cards data={pokemonData} />
-        )}
-      </main>
-    );
-  }
+  return (
+    <main>
+      {dataFetch.isFetching ? (
+        <div className="spinner-container">
+          <img src={spinner} alt="Loading..." />
+        </div>
+      ) : (
+        <Cards data={dataFetch.pokemonData} />
+      )}
+    </main>
+  );
 }
