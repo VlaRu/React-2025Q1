@@ -33,9 +33,7 @@ export default function FetchData({ query }: DataFetchingProps) {
         });
     };
 
-    if (query) {
-      fetchData();
-    }
+    fetchData();
   }, [query]);
 
   return (

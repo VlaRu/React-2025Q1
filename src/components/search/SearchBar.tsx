@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import FetchData from '../../api/fetchData';
 import './Search.css';
 
@@ -7,50 +7,54 @@ type NameData = {
   submitName: string
 };
 
-export class Search extends Component<Record<string, never>, NameData> {
-  constructor(props: Record<string, never>) {
-    super(props);
-    const localState = localStorage.getItem('name') || '';
-    this.state = {
-      searchName: localState || '',
-      submitName: localState || ''
-    };
-  }
+function useSearchQuery(defaultValue: string) {
+  const storedValue = localStorage.getItem('name') || defaultValue;
+  const [query, setQuery] = useState<string>(storedValue);
 
-  componentDidMount(): void {
-    this.setState({ submitName: localStorage.getItem('name') || '' });
-  }
+  useEffect(() => {
+    localStorage.setItem('name', query);
+  }, [query]);
 
-  submitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
+  return [query, setQuery] as const;
+}
+
+export function Search() {
+  const [searchName, setSearchName] = useSearchQuery('');
+  const [localData, setLocalData] = useState<NameData>({
+    searchName: searchName || '',
+    submitName: searchName || ''
+  });
+
+  const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    this.setState({
-      submitName: this.state.searchName
-    });
-    localStorage.setItem('name', this.state.searchName as string);
+    setLocalData((prevState) => ({
+      ...prevState,
+      submitName: localData.searchName
+    }));
   };
 
-  handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
-    const sanitizedValue = value.replace(/[^a-zA-Z0-9\s]/g, '');
-    this.setState({
-      searchName: sanitizedValue
-    });
+    const validatedQuery = value.replace(/[^a-zA-Z0-9\s]/g, '');
+    setLocalData((prevState) => ({
+      ...prevState,
+      searchName: validatedQuery
+    }));
+    setSearchName(validatedQuery);
   };
 
-  render() {
-    return (
-      <>
-        <form onSubmit={this.submitSearch} className="search-form">
-          <input
-            placeholder="Search..."
-            value={this.state.searchName}
-            onChange={this.handleSearchChange}
-            className="input-search"
-          />
-          <input type="submit" value="search" className="submit-search-btn" />
-        </form>
-        <FetchData query={this.state.submitName.replace(/\s+/g, '')} />
-      </>
-    );
-  }
+  return (
+    <>
+      <form onSubmit={handleSubmitSearch} className="search-form">
+        <input
+          placeholder="Search..."
+          value={localData.searchName}
+          onChange={handleSearchChange}
+          className="input-search"
+        />
+        <input type="submit" value="search" className="submit-search-btn" />
+      </form>
+      <FetchData query={localData.submitName.replace(/\s+/g, '')} />
+    </>
+  );
 }
