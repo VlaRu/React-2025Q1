@@ -1,0 +1,13 @@
+.pagination-container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.btn-pagination {
+  width: 100px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid black;
+}

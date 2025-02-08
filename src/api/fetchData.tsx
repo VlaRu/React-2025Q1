@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import Cards, { pokemonType } from '../components/results/CardsResults';
-import spinner from './../assets/spinner.svg';
 import { URL } from './constants';
+import { Pagination } from '../components/pagination/Pagination';
+import { ResultList } from '../components/results/resultList';
+import { pokemonType } from '../components/results/CardsResults';
 
 type DataFetchingProps = {
   query: string
@@ -17,11 +18,21 @@ export default function FetchData({ query }: DataFetchingProps) {
     pokemonData: [],
     isFetching: false
   });
+  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+    if (query) {
+      setCurrentPage(1);
+    }
+  }, [query]);
+
+  const queryParameters = `?page=${currentPage}&pageSize=6&q=name:`;
+  const queryString = query
+    ? `${queryParameters}${query}*`
+    : `${queryParameters}*`;
 
   useEffect(() => {
     const fetchData = async () => {
       setDataFetch((prevState) => ({ ...prevState, isFetching: true }));
-      const queryString = query ? `q=name:${query}*` : '';
       fetch(`${URL}${queryString}`)
         .then((response) => response.json())
         .then((data) => {
@@ -34,17 +45,15 @@ export default function FetchData({ query }: DataFetchingProps) {
     };
 
     fetchData();
-  }, [query]);
+  }, [query, queryString, currentPage]);
 
   return (
-    <main>
-      {dataFetch.isFetching ? (
-        <div className="spinner-container">
-          <img src={spinner} alt="Loading..." />
-        </div>
-      ) : (
-        <Cards data={dataFetch.pokemonData} />
-      )}
-    </main>
+    <>
+      <ResultList
+        isFetching={dataFetch.isFetching}
+        pokemonData={dataFetch.pokemonData}
+      />
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    </>
   );
 }
