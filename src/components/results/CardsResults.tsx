@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import './CardsResults.css';
+import { DetailedCard } from '../detail/Detail';
 
 export type pokemonType = {
   name: string,
@@ -15,12 +17,24 @@ export interface CreateCardsProps {
 }
 
 export default function Cards({ data }: CreateCardsProps) {
+  const [selectedCard, setSelectedCard] = useState<pokemonType | null>(null);
+  const [isActiveDetails, setActiveDetails] = useState(false);
+
+  function handleOpenCard(cardId: pokemonType) {
+    setSelectedCard(cardId);
+    setActiveDetails(true);
+  }
+
   return (
-    <>
+    <main className="main-section">
       {data && data.length > 0 ? (
         <div className="container-cards">
           {data.map((pokemon: pokemonType) => (
-            <div key={pokemon.id} className="container-card">
+            <div
+              key={pokemon.id}
+              className="container-card"
+              onClick={() => handleOpenCard(pokemon)}
+            >
               <h2>Name: {pokemon.name}</h2>
               <div className="container-img_card">
                 <img src={pokemon.images.small} alt="pokemon-img" />
@@ -40,6 +54,13 @@ export default function Cards({ data }: CreateCardsProps) {
       ) : (
         <p className="error-info">Loading data...</p>
       )}
-    </>
+      {selectedCard && (
+        <DetailedCard
+          data={selectedCard}
+          isActiveDetails={isActiveDetails}
+          setActiveDetails={setActiveDetails}
+        />
+      )}
+    </main>
   );
 }
