@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { URL } from './constants';
 import { Pagination } from '../components/pagination/Pagination';
-import { ResultList } from '../components/results/resultList';
 import { pokemonType } from '../components/results/CardsResults';
+import { ResultList } from '../components/results/ResultList';
 
 type DataFetchingProps = {
   query: string
