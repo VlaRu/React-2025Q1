@@ -1,0 +1,5 @@
+#!/bin/sh
+npx --no -- commitlint --edit "$1" || {
+  echo "❌ Commit message does not follow the rules! Must be started with : 'feat', 'fix', 'init', 'docs', 'refactor'❌"
+  exit 1
+}
