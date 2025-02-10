@@ -3,6 +3,7 @@ import { URL } from './constants';
 import { Pagination } from '../components/pagination/Pagination';
 import { pokemonType } from '../components/results/CardsResults';
 import { ResultList } from '../components/results/ResultList';
+import { DataDetail } from '../components/detail';
 
 type DataFetchingProps = {
   query: string
@@ -58,7 +59,7 @@ export default function FetchData({ query }: DataFetchingProps) {
   );
 }
 
-export async function FetchDetailCard({ idCard }) {
+export async function FetchDetailCard({ idCard }: DataDetail) {
   try {
     const response = await fetch(`${URL}${idCard.id}`);
     const data = await response.json();

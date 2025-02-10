@@ -1,6 +1,6 @@
 import { FetchDetailCard } from '../../api/fetchData';
 
-interface DataDetail {
+export interface DataDetail {
   id: string;
   images: {
     small?: string
