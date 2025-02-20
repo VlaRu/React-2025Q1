@@ -1,0 +1,675 @@
+{
+    "data": [
+        {
+            "id": "basep-1",
+            "name": "Pikachu",
+            "supertype": "Pokémon",
+            "subtypes": [
+                "Basic"
+            ],
+            "level": "16",
+            "hp": "60",
+            "types": [
+                "Lightning"
+            ],
+            "evolvesTo": [
+                "Raichu"
+            ],
+            "attacks": [
+                {
+                    "name": "Growl",
+                    "cost": [
+                        "Colorless"
+                    ],
+                    "convertedEnergyCost": 1,
+                    "damage": "",
+                    "text": "If the Defending Pokémon attacks Pikachu during your opponent's next turn, any damage done by the attack is reduced by 10 (after applying Weakness and Resistance). (Benching either Pokémon ends this effect.)"
+                },
+                {
+                    "name": "Thundershock",
+                    "cost": [
+                        "Lightning",
+                        "Lightning"
+                    ],
+                    "convertedEnergyCost": 2,
+                    "damage": "20",
+                    "text": "Flip a coin. If heads, the Defending Pokémon is now Paralyzed."
+                }
+            ],
+            "weaknesses": [
+                {
+                    "type": "Fighting",
+                    "value": "×2"
+                }
+            ],
+            "retreatCost": [
+                "Colorless"
+            ],
+            "convertedRetreatCost": 1,
+            "set": {
+                "id": "basep",
+                "name": "Wizards Black Star Promos",
+                "series": "Base",
+                "printedTotal": 53,
+                "total": 53,
+                "legalities": {
+                    "unlimited": "Legal"
+                },
+                "ptcgoCode": "PR",
+                "releaseDate": "1999/07/01",
+                "updatedAt": "2020/08/14 09:35:00",
+                "images": {
+                    "symbol": "https://images.pokemontcg.io/basep/symbol.png",
+                    "logo": "https://images.pokemontcg.io/basep/logo.png"
+                }
+            },
+            "number": "1",
+            "artist": "Keiji Kinebuchi",
+            "rarity": "Promo",
+            "flavorText": "When several of these Pokémon gather, their electricity could build and cause lightning storms.",
+            "nationalPokedexNumbers": [
+                25
+            ],
+            "legalities": {
+                "unlimited": "Legal"
+            },
+            "images": {
+                "small": "https://images.pokemontcg.io/basep/1.png",
+                "large": "https://images.pokemontcg.io/basep/1_hires.png"
+            },
+            "tcgplayer": {
+                "url": "https://prices.pokemontcg.io/tcgplayer/basep-1",
+                "updatedAt": "2023/03/27"
+            },
+            "cardmarket": {
+                "url": "https://prices.pokemontcg.io/cardmarket/basep-1",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "averageSellPrice": 11.18,
+                    "lowPrice": 3,
+                    "trendPrice": 13.1,
+                    "germanProLow": 0,
+                    "suggestedPrice": 0,
+                    "reverseHoloSell": 0,
+                    "reverseHoloLow": 0,
+                    "reverseHoloTrend": 16.32,
+                    "lowPriceExPlus": 5.97,
+                    "avg1": 8.2,
+                    "avg7": 13.22,
+                    "avg30": 11.74,
+                    "reverseHoloAvg1": 12,
+                    "reverseHoloAvg7": 12.83,
+                    "reverseHoloAvg30": 12.83
+                }
+            }
+        },
+        {
+            "id": "mcd19-6",
+            "name": "Pikachu",
+            "supertype": "Pokémon",
+            "subtypes": [
+                "Basic"
+            ],
+            "hp": "60",
+            "types": [
+                "Lightning"
+            ],
+            "evolvesTo": [
+                "Raichu"
+            ],
+            "attacks": [
+                {
+                    "cost": [
+                        "Lightning"
+                    ],
+                    "name": "Iron Tail",
+                    "text": "Flip a coin until you get tails. This attack does 20 damage for each heads.",
+                    "damage": "20",
+                    "convertedEnergyCost": 1
+                }
+            ],
+            "weaknesses": [
+                {
+                    "type": "Fighting",
+                    "value": "×2"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "Metal",
+                    "value": "-20"
+                }
+            ],
+            "retreatCost": [
+                "Colorless"
+            ],
+            "convertedRetreatCost": 1,
+            "set": {
+                "id": "mcd19",
+                "name": "McDonald's Collection 2019",
+                "series": "Other",
+                "printedTotal": 12,
+                "total": 12,
+                "legalities": {
+                    "unlimited": "Legal",
+                    "expanded": "Legal"
+                },
+                "releaseDate": "2019/10/15",
+                "updatedAt": "2022/10/10 15:12:00",
+                "images": {
+                    "symbol": "https://images.pokemontcg.io/mcd19/symbol.png",
+                    "logo": "https://images.pokemontcg.io/mcd19/logo.png"
+                }
+            },
+            "number": "6",
+            "artist": "Kagemaru Himeno",
+            "flavorText": "A plan was recently announced to gather many Pikachu and make an electric power plant.",
+            "nationalPokedexNumbers": [
+                25
+            ],
+            "legalities": {
+                "unlimited": "Legal",
+                "expanded": "Legal"
+            },
+            "images": {
+                "small": "https://images.pokemontcg.io/mcd19/6.png",
+                "large": "https://images.pokemontcg.io/mcd19/6_hires.png"
+            },
+            "tcgplayer": {
+                "url": "https://prices.pokemontcg.io/tcgplayer/mcd19-6",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "holofoil": {
+                        "low": 9.17,
+                        "mid": 12.55,
+                        "high": 22.36,
+                        "market": 16.04,
+                        "directLow": 21.97
+                    }
+                }
+            },
+            "cardmarket": {
+                "url": "https://prices.pokemontcg.io/cardmarket/mcd19-6",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "averageSellPrice": 7.63,
+                    "lowPrice": 1,
+                    "trendPrice": 8.57,
+                    "germanProLow": 0,
+                    "suggestedPrice": 0,
+                    "reverseHoloSell": 0,
+                    "reverseHoloLow": 0,
+                    "reverseHoloTrend": 8.67,
+                    "lowPriceExPlus": 4,
+                    "avg1": 5.99,
+                    "avg7": 5.63,
+                    "avg30": 6.78,
+                    "reverseHoloAvg1": 5,
+                    "reverseHoloAvg7": 11.67,
+                    "reverseHoloAvg30": 9.23
+                }
+            }
+        },
+        {
+            "id": "basep-4",
+            "name": "Pikachu",
+            "supertype": "Pokémon",
+            "subtypes": [
+                "Basic"
+            ],
+            "level": "13",
+            "hp": "50",
+            "types": [
+                "Lightning"
+            ],
+            "evolvesTo": [
+                "Raichu"
+            ],
+            "attacks": [
+                {
+                    "name": "Recharge",
+                    "cost": [
+                        "Lightning"
+                    ],
+                    "convertedEnergyCost": 1,
+                    "damage": "",
+                    "text": "Search your deck for a Lightning Energy card and attach it to Pikachu. Shuffle your deck afterward."
+                },
+                {
+                    "name": "Thunderbolt",
+                    "cost": [
+                        "Lightning",
+                        "Lightning",
+                        "Lightning"
+                    ],
+                    "convertedEnergyCost": 3,
+                    "damage": "50",
+                    "text": "Discard all Energy cards attached to Pikachu in order to use this attack."
+                }
+            ],
+            "weaknesses": [
+                {
+                    "type": "Fighting",
+                    "value": "×2"
+                }
+            ],
+            "retreatCost": [
+                "Colorless"
+            ],
+            "convertedRetreatCost": 1,
+            "set": {
+                "id": "basep",
+                "name": "Wizards Black Star Promos",
+                "series": "Base",
+                "printedTotal": 53,
+                "total": 53,
+                "legalities": {
+                    "unlimited": "Legal"
+                },
+                "ptcgoCode": "PR",
+                "releaseDate": "1999/07/01",
+                "updatedAt": "2020/08/14 09:35:00",
+                "images": {
+                    "symbol": "https://images.pokemontcg.io/basep/symbol.png",
+                    "logo": "https://images.pokemontcg.io/basep/logo.png"
+                }
+            },
+            "number": "4",
+            "artist": "Ken Sugimori",
+            "rarity": "Promo",
+            "flavorText": "When several of these Pokémon gather, they attract so much electricity that they can cause lightning to strike.",
+            "nationalPokedexNumbers": [
+                25
+            ],
+            "legalities": {
+                "unlimited": "Legal"
+            },
+            "images": {
+                "small": "https://images.pokemontcg.io/basep/4.png",
+                "large": "https://images.pokemontcg.io/basep/4_hires.png"
+            },
+            "tcgplayer": {
+                "url": "https://prices.pokemontcg.io/tcgplayer/basep-4",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "normal": {
+                        "low": 7,
+                        "mid": 14,
+                        "high": 40,
+                        "market": 14.32,
+                        "directLow": 11.19
+                    }
+                }
+            },
+            "cardmarket": {
+                "url": "https://prices.pokemontcg.io/cardmarket/basep-4",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "averageSellPrice": 9.87,
+                    "lowPrice": 0.49,
+                    "trendPrice": 12.22,
+                    "germanProLow": 0,
+                    "suggestedPrice": 0,
+                    "reverseHoloSell": 0,
+                    "reverseHoloLow": 0,
+                    "reverseHoloTrend": 4.79,
+                    "lowPriceExPlus": 4.95,
+                    "avg1": 2.74,
+                    "avg7": 9.29,
+                    "avg30": 11.3,
+                    "reverseHoloAvg1": 14.99,
+                    "reverseHoloAvg7": 6.69,
+                    "reverseHoloAvg30": 4.5
+                }
+            }
+        },
+        {
+            "id": "det1-10",
+            "name": "Detective Pikachu",
+            "supertype": "Pokémon",
+            "subtypes": [
+                "Basic"
+            ],
+            "hp": "90",
+            "types": [
+                "Lightning"
+            ],
+            "evolvesTo": [
+                "Raichu"
+            ],
+            "attacks": [
+                {
+                    "name": "Scout",
+                    "cost": [
+                        "Lightning"
+                    ],
+                    "convertedEnergyCost": 1,
+                    "damage": "",
+                    "text": "Your opponent reveals their hand."
+                },
+                {
+                    "name": "Surprise Attack",
+                    "cost": [
+                        "Colorless",
+                        "Colorless",
+                        "Colorless"
+                    ],
+                    "convertedEnergyCost": 3,
+                    "damage": "80",
+                    "text": "Flip a coin. If tails, this attack does nothing."
+                }
+            ],
+            "weaknesses": [
+                {
+                    "type": "Fighting",
+                    "value": "×2"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "Metal",
+                    "value": "-20"
+                }
+            ],
+            "retreatCost": [
+                "Colorless",
+                "Colorless"
+            ],
+            "convertedRetreatCost": 2,
+            "set": {
+                "id": "det1",
+                "name": "Detective Pikachu",
+                "series": "Sun & Moon",
+                "printedTotal": 18,
+                "total": 18,
+                "legalities": {
+                    "unlimited": "Legal",
+                    "expanded": "Legal"
+                },
+                "ptcgoCode": "DET",
+                "releaseDate": "2019/04/05",
+                "updatedAt": "2021/09/01 05:37:00",
+                "images": {
+                    "symbol": "https://images.pokemontcg.io/det1/symbol.png",
+                    "logo": "https://images.pokemontcg.io/det1/logo.png"
+                }
+            },
+            "number": "10",
+            "artist": "MPC Film",
+            "rarity": "Rare",
+            "flavorText": "He loves to show off his vast knowledge. This expressive Pikachu is like a middle-aged man.",
+            "nationalPokedexNumbers": [
+                25
+            ],
+            "legalities": {
+                "unlimited": "Legal",
+                "expanded": "Legal"
+            },
+            "images": {
+                "small": "https://images.pokemontcg.io/det1/10.png",
+                "large": "https://images.pokemontcg.io/det1/10_hires.png"
+            },
+            "tcgplayer": {
+                "url": "https://prices.pokemontcg.io/tcgplayer/det1-10",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "holofoil": {
+                        "low": 2,
+                        "mid": 3.47,
+                        "high": 9.99,
+                        "market": 3.53,
+                        "directLow": 5.99
+                    }
+                }
+            },
+            "cardmarket": {
+                "url": "https://prices.pokemontcg.io/cardmarket/det1-10",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "averageSellPrice": 5.91,
+                    "lowPrice": 0.99,
+                    "trendPrice": 5.75,
+                    "germanProLow": 0,
+                    "suggestedPrice": 0,
+                    "reverseHoloSell": 5.5,
+                    "reverseHoloLow": 9.99,
+                    "reverseHoloTrend": 7.8,
+                    "lowPriceExPlus": 3.6,
+                    "avg1": 8,
+                    "avg7": 5.26,
+                    "avg30": 5.93,
+                    "reverseHoloAvg1": 5.5,
+                    "reverseHoloAvg7": 6.06,
+                    "reverseHoloAvg30": 7.91
+                }
+            }
+        },
+        {
+            "id": "ru1-7",
+            "name": "Pikachu",
+            "supertype": "Pokémon",
+            "subtypes": [
+                "Basic"
+            ],
+            "hp": "60",
+            "types": [
+                "Lightning"
+            ],
+            "evolvesTo": [
+                "Raichu"
+            ],
+            "attacks": [
+                {
+                    "name": "Volt Tackle",
+                    "cost": [
+                        "Lightning",
+                        "Colorless",
+                        "Colorless"
+                    ],
+                    "convertedEnergyCost": 3,
+                    "damage": "60",
+                    "text": "Pikachu does 10 damage to itself."
+                }
+            ],
+            "weaknesses": [
+                {
+                    "type": "Fighting",
+                    "value": "×2"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "Metal",
+                    "value": "-20"
+                }
+            ],
+            "retreatCost": [
+                "Colorless"
+            ],
+            "convertedRetreatCost": 1,
+            "set": {
+                "id": "ru1",
+                "name": "Pokémon Rumble",
+                "series": "Other",
+                "printedTotal": 16,
+                "total": 16,
+                "legalities": {
+                    "unlimited": "Legal"
+                },
+                "releaseDate": "2009/12/02",
+                "updatedAt": "2019/01/28 16:44:00",
+                "images": {
+                    "symbol": "https://images.pokemontcg.io/ru1/symbol.png",
+                    "logo": "https://images.pokemontcg.io/ru1/logo.png"
+                }
+            },
+            "number": "7",
+            "artist": "Pokemon Rumble",
+            "nationalPokedexNumbers": [
+                25
+            ],
+            "legalities": {
+                "unlimited": "Legal"
+            },
+            "images": {
+                "small": "https://images.pokemontcg.io/ru1/7.png",
+                "large": "https://images.pokemontcg.io/ru1/7_hires.png"
+            },
+            "tcgplayer": {
+                "url": "https://prices.pokemontcg.io/tcgplayer/ru1-7",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "holofoil": {
+                        "low": 139.2,
+                        "mid": 232.49,
+                        "high": 349.95,
+                        "market": 149.99,
+                        "directLow": null
+                    }
+                }
+            },
+            "cardmarket": {
+                "url": "https://prices.pokemontcg.io/cardmarket/ru1-7",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "averageSellPrice": 64.99,
+                    "lowPrice": 39.95,
+                    "trendPrice": 91.47,
+                    "germanProLow": 0,
+                    "suggestedPrice": 0,
+                    "reverseHoloSell": 0,
+                    "reverseHoloLow": 0,
+                    "reverseHoloTrend": 41.46,
+                    "lowPriceExPlus": 79.99,
+                    "avg1": 154,
+                    "avg7": 89.14,
+                    "avg30": 91.92,
+                    "reverseHoloAvg1": 39.99,
+                    "reverseHoloAvg7": 37.71,
+                    "reverseHoloAvg30": 16.09
+                }
+            }
+        },
+        {
+            "id": "pop6-9",
+            "name": "Pikachu",
+            "supertype": "Pokémon",
+            "subtypes": [
+                "Basic"
+            ],
+            "level": "13",
+            "hp": "50",
+            "types": [
+                "Lightning"
+            ],
+            "evolvesTo": [
+                "Raichu"
+            ],
+            "rules": [
+                "Oran Berry: Remove 1 damage counter from Pikachu at the end of your turn."
+            ],
+            "attacks": [
+                {
+                    "name": "Spark",
+                    "cost": [
+                        "Lightning",
+                        "Colorless"
+                    ],
+                    "convertedEnergyCost": 2,
+                    "damage": "10",
+                    "text": "Does 10 damage to 2 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+                }
+            ],
+            "weaknesses": [
+                {
+                    "type": "Fighting",
+                    "value": "+10"
+                }
+            ],
+            "resistances": [
+                {
+                    "type": "Metal",
+                    "value": "-20"
+                }
+            ],
+            "retreatCost": [
+                "Colorless"
+            ],
+            "convertedRetreatCost": 1,
+            "set": {
+                "id": "pop6",
+                "name": "POP Series 6",
+                "series": "POP",
+                "printedTotal": 17,
+                "total": 17,
+                "legalities": {
+                    "unlimited": "Legal"
+                },
+                "releaseDate": "2007/09/01",
+                "updatedAt": "2020/05/01 16:06:00",
+                "images": {
+                    "symbol": "https://images.pokemontcg.io/pop6/symbol.png",
+                    "logo": "https://images.pokemontcg.io/pop6/logo.png"
+                }
+            },
+            "number": "9",
+            "artist": "Kagemaru Himeno",
+            "rarity": "Uncommon",
+            "nationalPokedexNumbers": [
+                25
+            ],
+            "legalities": {
+                "unlimited": "Legal"
+            },
+            "images": {
+                "small": "https://images.pokemontcg.io/pop6/9.png",
+                "large": "https://images.pokemontcg.io/pop6/9_hires.png"
+            },
+            "tcgplayer": {
+                "url": "https://prices.pokemontcg.io/tcgplayer/pop6-9",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "normal": {
+                        "low": 24.13,
+                        "mid": 36.98,
+                        "high": 39.95,
+                        "market": 24.13,
+                        "directLow": null
+                    },
+                    "holofoil": {
+                        "low": 33.92,
+                        "mid": 40,
+                        "high": 59.18,
+                        "market": 38.66,
+                        "directLow": 24.49
+                    }
+                }
+            },
+            "cardmarket": {
+                "url": "https://prices.pokemontcg.io/cardmarket/pop6-9",
+                "updatedAt": "2025/02/20",
+                "prices": {
+                    "averageSellPrice": 29.85,
+                    "lowPrice": 11.99,
+                    "trendPrice": 28.39,
+                    "germanProLow": 0,
+                    "suggestedPrice": 0,
+                    "reverseHoloSell": 0,
+                    "reverseHoloLow": 0,
+                    "reverseHoloTrend": 0,
+                    "lowPriceExPlus": 25,
+                    "avg1": 24.99,
+                    "avg7": 30.44,
+                    "avg30": 24.14,
+                    "reverseHoloAvg1": 0,
+                    "reverseHoloAvg7": 0,
+                    "reverseHoloAvg30": 0
+                }
+            }
+        }
+    ],
+    "page": 1,
+    "pageSize": 6,
+    "count": 6,
+    "totalCount": 173
+}

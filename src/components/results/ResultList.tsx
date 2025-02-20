@@ -8,6 +8,7 @@ export function ResultList({ submitName, currentPage }: ResultListProps) {
     queryName: submitName,
     page: currentPage
   });
+
   return (
     <>
       {error ? (

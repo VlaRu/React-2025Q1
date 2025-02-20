@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ResultList } from '../results/ResultList';
-import './Search.css';
 import { Pagination } from '../pagination/Pagination';
 import { FlyoutPanel } from '../flyout/Flyout';
+import './Search.css';
 
 type NameData = {
   searchName: string,
