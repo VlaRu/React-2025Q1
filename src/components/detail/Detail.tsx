@@ -1,4 +1,5 @@
 import { useGetPokemonDetailQuery } from '../../api/fetchData';
+import spinner from './../../assets/spinner.svg';
 import './Detail.css';
 
 interface DetailProps {
@@ -10,13 +11,15 @@ export function DetailedCard({ id, handleCloseCard }: DetailProps) {
   const { data, error, isLoading } = useGetPokemonDetailQuery(id);
 
   return (
-    <div className="detail-container">
+    <div>
       {isLoading ? (
-        <p>Loading...</p>
+        <div className="spinner-container">
+          <img src={spinner} alt="Loading..." />
+        </div>
       ) : error ? (
         <p style={{ color: 'red' }}>Error loading details!</p>
       ) : data ? (
-        <>
+        <div className="detail-container">
           <button className="close-detail_btn" onClick={handleCloseCard}>
             X
           </button>
@@ -29,7 +32,7 @@ export function DetailedCard({ id, handleCloseCard }: DetailProps) {
           <p>
             `Description: {data.data.flavorText || 'No description available'}`
           </p>
-        </>
+        </div>
       ) : null}
     </div>
   );
