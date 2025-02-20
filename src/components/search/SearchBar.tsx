@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
-import FetchData from '../../api/fetchData';
+import { useSearchParams } from 'react-router-dom';
+import { ResultList } from '../results/ResultList';
 import './Search.css';
+import { Pagination } from '../pagination/Pagination';
+import { FlyoutPanel } from '../flyout/Flyout';
 
 type NameData = {
   searchName: string,
@@ -25,12 +28,17 @@ export function Search() {
     submitName: searchName || ''
   });
 
+  const [searchParams] = useSearchParams();
+  const initialPage = Number(searchParams.get('page')) || 1;
+  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+
   const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setLocalData((prevState) => ({
       ...prevState,
       submitName: localData.searchName
     }));
+    setCurrentPage(1);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -54,7 +62,9 @@ export function Search() {
         />
         <input type="submit" value="search" className="submit-search-btn" />
       </form>
-      <FetchData query={localData.submitName.replace(/\s+/g, '')} />
+      <ResultList submitName={localData.submitName} currentPage={currentPage} />
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <FlyoutPanel />
     </>
   );
 }
