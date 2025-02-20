@@ -1,36 +1,36 @@
-import { FetchDetailCard } from '../../api/fetchData';
+import { useGetPokemonDetailQuery } from '../../api/fetchData';
+import './Detail.css';
 
-export interface DataDetail {
+interface DetailProps {
   id: string;
-  images: {
-    small?: string
-  };
+  handleCloseCard: () => void;
 }
 
-interface Detail {
-  data: DataDetail;
-  isActiveDetails: boolean;
-  setActiveDetails: (id: boolean) => void;
-}
-export function DetailedCard({
-  data,
-  isActiveDetails,
-  setActiveDetails
-}: Detail) {
-  FetchDetailCard({ idCard: data });
-
-  function handleCloseCard() {
-    setActiveDetails(false);
-  }
+export function DetailedCard({ id, handleCloseCard }: DetailProps) {
+  const { data, error, isLoading } = useGetPokemonDetailQuery(id);
 
   return (
-    <>
-      {isActiveDetails && (
-        <div className="detail-container">
-          <button onClick={handleCloseCard}>X</button>
-          <img src={data.images.small} alt="pokemon-img" width={400} />
-        </div>
-      )}
-    </>
+    <div className="detail-container">
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p style={{ color: 'red' }}>Error loading details!</p>
+      ) : data ? (
+        <>
+          <button className="close-detail_btn" onClick={handleCloseCard}>
+            X
+          </button>
+          <img
+            src={data.data.images?.small || ''}
+            alt="pokemon-img"
+            width={400}
+          />
+          <h2>{data.data.name}</h2>
+          <p>
+            `Description: {data.data.flavorText || 'No description available'}`
+          </p>
+        </>
+      ) : null}
+    </div>
   );
 }

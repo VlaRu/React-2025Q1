@@ -1,51 +1,43 @@
 import { useState } from 'react';
 import './CardsResults.css';
 import { DetailedCard } from '../detail/Detail';
-
-export type pokemonType = {
-  name: string,
-  id: string,
-  flavorText: string,
-  images: {
-    small?: string,
-    large?: string
-  }
-};
+import HeartIcon from './heartSvg';
+import { pokemonType } from '../../utils/types';
+import { Outlet } from 'react-router-dom';
 
 export interface CreateCardsProps {
   data: pokemonType[];
 }
 
 export default function Cards({ data }: CreateCardsProps) {
-  const [selectedCard, setSelectedCard] = useState<pokemonType | null>(null);
-  const [isActiveDetails, setActiveDetails] = useState(false);
+  const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
 
-  function handleOpenCard(cardId: pokemonType) {
-    setSelectedCard(cardId);
-    setActiveDetails(true);
+  function handleOpenCard(id: string) {
+    setSelectedCardId(id);
+  }
+
+  function handleCloseCard() {
+    setSelectedCardId(null);
   }
 
   return (
     <main className="main-section">
-      {data && data.length > 0 ? (
+      {!data ? (
+        <p className="error-info">Loading data...</p>
+      ) : data.length > 0 ? (
         <div className="container-cards">
           {data.map((pokemon: pokemonType) => (
-            <div
-              key={pokemon.id}
-              className="container-card"
-              onClick={() => handleOpenCard(pokemon)}
-            >
-              <h2>Name: {pokemon.name}</h2>
-              <div className="container-img_card">
+            <div key={pokemon.id} className="container-card">
+              <HeartIcon id={pokemon.id} />
+              <div>
+                <h2>Name: {pokemon.name}</h2>
+              </div>
+              <div
+                className="container-img_card"
+                onClick={() => handleOpenCard(pokemon.id)}
+              >
                 <img src={pokemon.images.small} alt="pokemon-img" />
               </div>
-              {pokemon.flavorText ? (
-                <h3 style={{ fontSize: '18px' }}>
-                  Description: {pokemon.flavorText}
-                </h3>
-              ) : (
-                <h3>Description is absent</h3>
-              )}
             </div>
           ))}
         </div>
@@ -54,13 +46,10 @@ export default function Cards({ data }: CreateCardsProps) {
       ) : (
         <p className="error-info">Loading data...</p>
       )}
-      {selectedCard && (
-        <DetailedCard
-          data={selectedCard}
-          isActiveDetails={isActiveDetails}
-          setActiveDetails={setActiveDetails}
-        />
+      {selectedCardId && (
+        <DetailedCard id={selectedCardId} handleCloseCard={handleCloseCard} />
       )}
+      <Outlet />
     </main>
   );
 }
