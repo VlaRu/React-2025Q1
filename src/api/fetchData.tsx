@@ -1,71 +1,28 @@
-import { useState, useEffect } from 'react';
 import { URL } from './constants';
-import { Pagination } from '../components/pagination/Pagination';
-import { pokemonType } from '../components/results/CardsResults';
-import { ResultList } from '../components/results/ResultList';
-import { DataDetail } from '../components/detail';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { DataFetchingState, PokemonDetailResponse } from '../utils/types';
 
-type DataFetchingProps = {
-  query: string
-};
-
-type DataFetchingState = {
-  pokemonData: pokemonType[],
-  isFetching: boolean
-};
-
-export default function FetchData({ query }: DataFetchingProps) {
-  const [dataFetch, setDataFetch] = useState<DataFetchingState>({
-    pokemonData: [],
-    isFetching: false
-  });
-  const [currentPage, setCurrentPage] = useState(1);
-  useEffect(() => {
-    if (query) {
-      setCurrentPage(1);
-    }
-  }, [query]);
-
-  const queryParameters = `?page=${currentPage}&pageSize=6&q=name:`;
-  const queryString = query
-    ? `${queryParameters}${query}*`
-    : `${queryParameters}*`;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setDataFetch((prevState) => ({ ...prevState, isFetching: true }));
-      fetch(`${URL}${queryString}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setDataFetch({ pokemonData: data.data, isFetching: false });
+export const pokemonApi = createApi({
+  reducerPath: 'pokemonApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: URL
+  }),
+  endpoints(builder) {
+    return {
+      getPokemonByName: builder.query<
+        DataFetchingState,
+        { queryName: string, page: number }
+      >({
+        query: ({ queryName, page }) => ({
+          url: `?page=${page}&pageSize=6&q=name:${queryName || '*'}`
         })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-          setDataFetch((prevState) => ({ ...prevState, isFetching: true }));
-        });
+      }),
+      getPokemonDetail: builder.query<PokemonDetailResponse, string>({
+        query: (id) => `/${id}`
+      })
     };
-
-    fetchData();
-  }, [query, queryString, currentPage]);
-
-  return (
-    <>
-      <ResultList
-        isFetching={dataFetch.isFetching}
-        pokemonData={dataFetch.pokemonData}
-      />
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
-    </>
-  );
-}
-
-export async function FetchDetailCard({ idCard }: DataDetail) {
-  try {
-    const response = await fetch(`${URL}${idCard.id}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error;
   }
-}
+});
+
+export const { useGetPokemonByNameQuery, useGetPokemonDetailQuery } =
+  pokemonApi;
