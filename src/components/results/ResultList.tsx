@@ -1,4 +1,4 @@
-import Cards from './CardsResults';
+import Cards from './Cards';
 import spinner from './../../assets/spinner.svg';
 import { useGetPokemonByNameQuery } from '../../api/fetchData';
 import { ResultListProps } from '../../utils/types';

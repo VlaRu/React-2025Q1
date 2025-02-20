@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './CardsResults.css';
+import './Cards.css';
 import { DetailedCard } from '../detail/Detail';
 import HeartIcon from './heartSvg';
 import { pokemonType } from '../../utils/types';
@@ -36,7 +36,21 @@ export default function Cards({ data }: CreateCardsProps) {
                 className="container-img_card"
                 onClick={() => handleOpenCard(pokemon.id)}
               >
-                <img src={pokemon.images.small} alt="pokemon-img" />
+                <div className="card-inner">
+                  <div className="card-front">
+                    <img
+                      src={pokemon.images.small}
+                      alt="pokemon-front"
+                      className="pokemon-img"
+                    />
+                  </div>
+                  <div className="card-back">
+                    <img
+                      src="https://images.pokemontcg.io/mcd14/1.png"
+                      alt="pokemon-back"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           ))}
