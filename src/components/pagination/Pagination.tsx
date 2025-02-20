@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Pagination.css';
 
 type PaginationProps = {
@@ -8,16 +8,20 @@ type PaginationProps = {
 
 export function Pagination({ currentPage, setCurrentPage }: PaginationProps) {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
   const handlePrev = () => {
     if (currentPage > 0) {
       setCurrentPage((prev) => prev - 1);
-      navigate(`/?page=${currentPage - 1}`);
+      const newPage = currentPage - 1;
+      navigate(`/?page=${newPage}&q=${searchParams.get('q') || ''}`);
     }
   };
 
   const handleNext = () => {
     setCurrentPage((prev) => prev + 1);
-    navigate(`/?page=${currentPage + 1}`);
+    const newPage = currentPage + 1;
+    navigate(`/?page=${newPage}&q=${searchParams.get('q') || ''}`);
   };
 
   return (
