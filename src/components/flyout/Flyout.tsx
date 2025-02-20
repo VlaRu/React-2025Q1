@@ -14,14 +14,16 @@ export function FlyoutPanel() {
   }
 
   return (
-    <div className="flyout-panel">
-      <button className="flyout-btn" onClick={handleReset}>
-        Unselect all
-      </button>
-      <p className="flyout-count">Saved:{count}</p>
-      <button className="flyout-btn" onClick={handleReset}>
-        Download
-      </button>
-    </div>
+    count > 0 && (
+      <div className={`flyout-panel ${count > 0 ? 'show' : ''}`}>
+        <button className="flyout-btn" onClick={handleReset}>
+          Unselect all
+        </button>
+        <p className="flyout-count">Saved:{count}</p>
+        <button className="flyout-btn" onClick={handleReset}>
+          Download
+        </button>
+      </div>
+    )
   );
 }
