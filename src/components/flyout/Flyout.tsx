@@ -15,7 +15,10 @@ export function FlyoutPanel() {
 
   return (
     count > 0 && (
-      <div className={`flyout-panel ${count > 0 ? 'show' : ''}`}>
+      <div
+        data-testid="flyout-panel"
+        className={`flyout-panel ${count > 0 ? 'show' : ''}`}
+      >
         <button className="flyout-btn" onClick={handleReset}>
           Unselect all
         </button>

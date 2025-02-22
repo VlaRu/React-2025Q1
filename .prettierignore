@@ -19,3 +19,4 @@ package-lock.json
 index.html
 .vite/deps/
 assets/
+src/__tests__/msw/moc.json
