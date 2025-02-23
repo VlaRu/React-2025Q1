@@ -76,26 +76,4 @@ describe('FlyoutPanel', () => {
     expect(dispatchMock).toHaveBeenCalledWith(resetCount());
     expect(dispatchMock).toHaveBeenCalledWith(clearAllSelectedPokemon());
   });
-
-  /* it("should dispatch actions when 'Download' button is clicked", () => {
-    store = mockStore({
-      counter: { value: 3 },
-      selectedPokemon: { selectedPokemon: [] }
-    });
-
-    render(
-      <Provider store={store}>
-        <FlyoutPanel />
-      </Provider>
-    );
-
-    const button = screen.getByText('Download');
-    fireEvent.click(button);
-
-    expect(global.URL.createObjectURL).toHaveBeenCalled();
-    expect(global.document.createElement).toHaveBeenCalledWith('a');
-    const linkElement = (global.document.createElement as vi.Mock).mock
-      .results[0].value;
-    expect(linkElement.download).toBe('3_pokemon.csv');
-  }); */
 });

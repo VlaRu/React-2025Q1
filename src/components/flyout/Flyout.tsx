@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useRef } from 'react';
 import './Flyout.css';
 import { AppDispatch, RootState } from '../../store/store';
 import { resetCount } from '../../store/counterSlice';
@@ -10,9 +11,8 @@ export function FlyoutPanel() {
     (state: RootState) => state.selectedPokemon.selectedPokemon
   );
 
-  console.log(selectedPokemon);
-
   const dispatch = useDispatch<AppDispatch>();
+  const downloadLinkRef = useRef<HTMLAnchorElement | null>(null);
 
   function handleReset() {
     dispatch(resetCount());
@@ -25,11 +25,12 @@ export function FlyoutPanel() {
     const csvContent = `Pokemon ID\n${selectedPokemon.join('\n')}`;
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${count}_pokemon.csv`;
-    link.click();
-    URL.revokeObjectURL(url);
+    if (downloadLinkRef.current) {
+      downloadLinkRef.current.href = url;
+      downloadLinkRef.current.download = `${count}_pokemon.csv`;
+      downloadLinkRef.current.click();
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
   return (
@@ -43,7 +44,7 @@ export function FlyoutPanel() {
         </button>
         <p className="flyout-count">Saved:{count}</p>
         <button className="flyout-btn" onClick={handleDownload}>
-          Download
+          <a ref={downloadLinkRef}>Download</a>
         </button>
       </div>
     )
