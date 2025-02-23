@@ -7,6 +7,7 @@ import { counterSlice } from '../store/counterSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { MemoryRouter } from 'react-router-dom';
 import { pokemonApi } from '../api/fetchData';
+import { selectedPokemonSlice } from '../store/selectedPokemon ';
 
 describe('Search Component', () => {
   beforeEach(() => {
@@ -15,11 +16,15 @@ describe('Search Component', () => {
 
   const renderWithProviders = (
     ui: React.ReactNode,
-    preloadedState = { counter: { value: 1 } }
+    preloadedState = {
+      counter: { value: 1 },
+      selectedPokemon: { selectedPokemon: [] }
+    }
   ) => {
     const store = configureStore({
       reducer: {
         counter: counterSlice.reducer,
+        selectedPokemon: selectedPokemonSlice.reducer,
         [pokemonApi.reducerPath]: pokemonApi.reducer
       },
       middleware: (getDefaultMiddleware) =>
