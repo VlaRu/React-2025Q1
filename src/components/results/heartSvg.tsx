@@ -35,6 +35,7 @@ export function HeartIcon({ id }: { id: string }) {
         />
         <svg
           className="heart-icon"
+          data-testid="heart-icon"
           viewBox="0 0 471.701 471.701"
           width="40px"
           height="40px"

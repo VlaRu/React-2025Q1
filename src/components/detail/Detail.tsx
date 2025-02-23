@@ -11,7 +11,7 @@ export function DetailedCard({ id, handleCloseCard }: DetailProps) {
   const { data, error, isLoading } = useGetPokemonDetailQuery(id);
 
   return (
-    <div>
+    <div data-testId="detailed-card">
       {isLoading ? (
         <div className="spinner-container">
           <img src={spinner} alt="Loading..." />

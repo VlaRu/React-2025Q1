@@ -10,7 +10,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/__tests__/setupTests',
     extension: ['.ts', '.tsx'],
-    include: ['src/**/*'],
+    include: ['src/**'],
     provider: 'v8'
+  },
+  json: {
+    stringify: true
   }
 });

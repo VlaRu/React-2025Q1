@@ -3,7 +3,6 @@ import './Cards.css';
 import { DetailedCard } from '../detail/Detail';
 import HeartIcon from './heartSvg';
 import { pokemonType } from '../../utils/types';
-import { Outlet } from 'react-router-dom';
 
 export interface CreateCardsProps {
   data: pokemonType[];
@@ -63,7 +62,6 @@ export default function Cards({ data }: CreateCardsProps) {
       {selectedCardId && (
         <DetailedCard id={selectedCardId} handleCloseCard={handleCloseCard} />
       )}
-      <Outlet />
     </main>
   );
 }
