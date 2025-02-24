@@ -1,0 +1,19 @@
+.pagination-container {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 150px 0;
+}
+
+.btn-pagination {
+  width: 100px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 3px solid black;
+  box-shadow: inset 0 0 10px yellow;
+  color: yellow;
+}
+
+.btn-pagination:hover {
+  box-shadow: inset 0 0 10px rgb(85, 255, 0);
+}
