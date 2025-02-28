@@ -9,11 +9,21 @@ export default defineConfig({
     css: false,
     environment: 'jsdom',
     setupFiles: './src/__tests__/setupTests',
-    extension: ['.ts', '.tsx'],
-    include: ['src/**'],
-    provider: 'v8'
+    /*     extension: ['.ts', '.tsx'],
+     */ include: ['src/**'],
+    coverage: {
+      provider: 'v8'
+    }
   },
   json: {
     stringify: true
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: './index.html'
+      },
+      external: ['**/__tests__/**', '**/*.test.ts', '**/*.test.tsx']
+    }
   }
 });
