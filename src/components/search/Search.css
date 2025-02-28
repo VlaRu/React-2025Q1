@@ -1,5 +1,14 @@
+.main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    width: fit-content;
+}
+
 .search-form {
-    width: 90vw;
+    width: 100%;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -24,6 +33,12 @@
     text-indent: 10px;
     border-radius: 15px;
     margin-right: 20px;
+}
+
+@media (max-width: 500px) {
+    .input-search {
+        width: 50%;
+    }
 }
 
 .submit-search-btn {
