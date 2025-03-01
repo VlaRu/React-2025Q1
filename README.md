@@ -6,7 +6,7 @@
 - React forms
 
 ## Stack: React | Redux/ RTK | TS | Eslint | Prettier | Husky | Vite |Vitest
-## Deploy [link](react-ts-pokemon.netlify.app)
+## Deploy [link](https://react-ts-pokemon.netlify.app/)
 
 ![alt text](image.png)
 
