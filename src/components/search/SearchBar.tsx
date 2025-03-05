@@ -52,7 +52,7 @@ export function Search() {
   };
 
   return (
-    <>
+    <main className="main-section">
       <form onSubmit={handleSubmitSearch} className="search-form">
         <input
           placeholder="Search..."
@@ -65,6 +65,6 @@ export function Search() {
       <ResultList submitName={localData.submitName} currentPage={currentPage} />
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <FlyoutPanel />
-    </>
+    </main>
   );
 }

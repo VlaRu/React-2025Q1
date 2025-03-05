@@ -20,21 +20,22 @@ export default function Cards({ data }: CreateCardsProps) {
   }
 
   return (
-    <main className="main-section">
+    <div className="cards-section">
       {!data ? (
         <p className="error-info">Loading data...</p>
       ) : data.length > 0 ? (
         <div className="container-cards">
           {data.map((pokemon: pokemonType) => (
-            <div key={pokemon.id} className="container-card">
+            <div
+              key={pokemon.id}
+              className="container-card"
+              onClick={() => handleOpenCard(pokemon.id)}
+            >
               <HeartIcon id={pokemon.id} />
               <div>
                 <h2>Name: {pokemon.name}</h2>
               </div>
-              <div
-                className="container-img_card"
-                onClick={() => handleOpenCard(pokemon.id)}
-              >
+              <div className="container-img_card">
                 <div className="card-inner">
                   <div className="card-front">
                     <img
@@ -62,6 +63,6 @@ export default function Cards({ data }: CreateCardsProps) {
       {selectedCardId && (
         <DetailedCard id={selectedCardId} handleCloseCard={handleCloseCard} />
       )}
-    </main>
+    </div>
   );
 }
