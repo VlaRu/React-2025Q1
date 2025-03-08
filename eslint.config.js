@@ -8,7 +8,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import reactCompiler from 'eslint-plugin-react-compiler';
 
 export default tseslint.config(
-  { ignores: ['dist', '.vite/', 'src/__tests__/msw/moc.json'] },
+  { ignores: ['dist', 'src/__tests__/msw/moc.json'] },
   {
     extends: [
       js.configs.recommended,
