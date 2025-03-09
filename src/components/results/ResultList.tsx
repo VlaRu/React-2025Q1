@@ -1,5 +1,5 @@
 import Cards from './Cards';
-import spinner from './../../assets/spinner.svg';
+import spinner from '../../../public/assets/spinner.svg';
 import { useGetPokemonByNameQuery } from '../../api/fetchData';
 import { ResultListProps } from '../../utils/types';
 

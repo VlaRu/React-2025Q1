@@ -1,20 +1,26 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { pokemonApi } from '../api/fetchData';
 import { counterSlice } from './counterSlice';
-import { selectedPokemonSlice } from './selectedPokemon ';
+import { selectedPokemonSlice } from './selectedPokemon';
+import { createWrapper } from 'next-redux-wrapper';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterSlice.reducer,
-    selectedPokemon: selectedPokemonSlice.reducer,
-    [pokemonApi.reducerPath]: pokemonApi.reducer
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(pokemonApi.middleware)
+const rootReducer = combineReducers({
+  counter: counterSlice.reducer,
+  selectedPokemon: selectedPokemonSlice.reducer,
+  [pokemonApi.reducerPath]: pokemonApi.reducer
 });
 
-setupListeners(store.dispatch);
+export const makeStore = () =>
+  configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(pokemonApi.middleware)
+  });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<ReturnType<typeof makeStore>['getState']>;
+export type AppDispatch = ReturnType<typeof makeStore>['dispatch'];
+
+export const wrapper = createWrapper(makeStore);
+
+setupListeners(makeStore().dispatch);

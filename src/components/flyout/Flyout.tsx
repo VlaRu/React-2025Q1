@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import './Flyout.css';
 import { AppDispatch, RootState } from '../../store/store';
 import { resetCount } from '../../store/counterSlice';
-import { clearAllSelectedPokemon } from '../../store/selectedPokemon ';
+import { clearAllSelectedPokemon } from '../../store/selectedPokemon';
 
 export function FlyoutPanel() {
   const count = useSelector((state: RootState) => state.counter.value);

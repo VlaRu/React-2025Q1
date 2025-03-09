@@ -1,5 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import './Pagination.css';
+import { useRouter } from 'next/router';
 
 type PaginationProps = {
   currentPage: number,
@@ -7,36 +6,30 @@ type PaginationProps = {
 };
 
 export function Pagination({ currentPage, setCurrentPage }: PaginationProps) {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const router = useRouter();
+  const { query } = router;
 
   const handlePrev = () => {
-    if (currentPage > 0) {
-      setCurrentPage((prev) => prev - 1);
+    if (currentPage > 1) {
       const newPage = currentPage - 1;
-      navigate(`/?page=${newPage}&q=${searchParams.get('q') || ''}`);
+      setCurrentPage(newPage);
+      router.push({ query: { ...query, page: newPage } });
     }
   };
 
   const handleNext = () => {
-    setCurrentPage((prev) => prev + 1);
     const newPage = currentPage + 1;
-    navigate(`/?page=${newPage}&q=${searchParams.get('q') || ''}`);
+    setCurrentPage(newPage);
+    router.push({ query: { ...query, page: newPage } });
   };
 
   return (
-    <div className="pagination-container">
-      <button
-        className="btn-pagination"
-        onClick={handlePrev}
-        disabled={currentPage === 1}
-      >
-        prev
+    <div>
+      <button onClick={handlePrev} disabled={currentPage <= 1}>
+        Previous
       </button>
-      <p>{currentPage}</p>
-      <button className="btn-pagination" onClick={handleNext}>
-        next
-      </button>
+      <span>Page {currentPage}</span>
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 }

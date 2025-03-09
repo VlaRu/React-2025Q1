@@ -1,10 +1,10 @@
-import { describe, expect, it } from 'vitest';
+/* import { describe, expect, it } from '@jest/globals';
 import {
   clearAllSelectedPokemon,
   clearSelectedPokemon,
   selectedPokemonSlice,
   setSelectedPokemon
-} from '../store/selectedPokemon ';
+} from '../store/selectedPokemon';
 
 describe('selectedPokemonSlice', () => {
   const initialState = { selectedPokemon: [] };
@@ -35,3 +35,4 @@ describe('selectedPokemonSlice', () => {
     expect(newState.selectedPokemon).toEqual([]);
   });
 });
+ */

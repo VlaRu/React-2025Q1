@@ -5,7 +5,7 @@
     "lib": [
       "ES2020",
       "DOM",
-      "DOM.Iterable"
+      "DOM.Iterable",
     ],
     "module": "preserve",
     "skipLibCheck": true,
@@ -23,7 +23,7 @@
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true /* forbids unsafe indexing of Records and arrays */,
     /* Path aliases */
-    "baseUrl": "",
+    "baseUrl": "src/",
     "paths": {
       "@/*": [
         "./src/*"

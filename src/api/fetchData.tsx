@@ -24,5 +24,10 @@ export const pokemonApi = createApi({
   }
 });
 
-export const { useGetPokemonByNameQuery, useGetPokemonDetailQuery } =
-  pokemonApi;
+export const {
+  useGetPokemonByNameQuery,
+  useGetPokemonDetailQuery,
+  util: { getRunningQueriesThunk }
+} = pokemonApi;
+
+export const { getPokemonByName, getPokemonDetail } = pokemonApi.endpoints;

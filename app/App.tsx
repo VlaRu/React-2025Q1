@@ -1,12 +1,12 @@
-import './App.css';
-import { Search } from '../components/search/SearchBar';
-import ErrorButton from '../components/error/ErrorButton';
+/* import './App.css';
+import { Search } from '../src/components/search/SearchBar';
+import ErrorButton from '../src/components/error/ErrorButton';
 import { Routes } from 'react-router';
 import { Route } from 'react-router';
-import ErrorPage from '../components/error/404page';
-import { DetailedCard } from '../components/detail/Detail';
+import ErrorPage from '../pages/_404';
+import { DetailedCard } from '../src/components/detail/Detail';
 import { createContext, useState } from 'react';
-import { Theme } from '../components/theme/Theme';
+import { Theme } from '../src/components/theme/Theme';
 
 type ThemeContextType = {
   theme: number,
@@ -38,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; */

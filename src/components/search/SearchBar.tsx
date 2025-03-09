@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { ResultList } from '../results/ResultList';
 import { Pagination } from '../pagination/Pagination';
 import { FlyoutPanel } from '../flyout/Flyout';
 import './Search.css';
+import { useRouter } from 'next/router';
 
 type NameData = {
   searchName: string,
@@ -11,8 +11,8 @@ type NameData = {
 };
 
 function useSearchQuery(defaultValue: string) {
-  const storedValue = localStorage.getItem('name') || defaultValue;
-  const [query, setQuery] = useState<string>(storedValue);
+  const storedValue =
+    typeof window !== 'undefined' ? localStorage.getItem('name') : null;  const [query, setQuery] = useState<string>(storedValue);
 
   useEffect(() => {
     localStorage.setItem('name', query);
@@ -22,23 +22,28 @@ function useSearchQuery(defaultValue: string) {
 }
 
 export function Search() {
+  const router = useRouter();
+  const { query } = router;
+
   const [searchName, setSearchName] = useSearchQuery('');
   const [localData, setLocalData] = useState<NameData>({
     searchName: searchName || '',
     submitName: searchName || ''
   });
 
-  const [searchParams] = useSearchParams();
-  const initialPage = Number(searchParams.get('page')) || 1;
+  const initialPage = Number(query.page) || 1;
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
+
+  useEffect(() => {
+    setCurrentPage(initialPage);
+  }, [initialPage, query.page]);
 
   const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setLocalData((prevState) => ({
-      ...prevState,
-      submitName: localData.searchName
-    }));
-    setCurrentPage(1);
+    router.push({
+      pathname: '/',
+      query: { name: localData.searchName, page: 1 }
+    });
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

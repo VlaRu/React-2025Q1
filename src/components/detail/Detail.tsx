@@ -1,5 +1,5 @@
 import { useGetPokemonDetailQuery } from '../../api/fetchData';
-import spinner from './../../assets/spinner.svg';
+import spinner from '../../../public/assets/spinner.svg';
 import './Detail.css';
 
 interface DetailProps {

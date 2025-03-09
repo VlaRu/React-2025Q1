@@ -4,7 +4,7 @@ import { decremented, incremented } from '../../store/counterSlice';
 import {
   clearSelectedPokemon,
   setSelectedPokemon
-} from '../../store/selectedPokemon ';
+} from '../../store/selectedPokemon';
 
 export function HeartIcon({ id }: { id: string }) {
   const dispatch = useDispatch<AppDispatch>();

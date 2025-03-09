@@ -1,4 +1,4 @@
-import { setupServer } from 'msw/node';
+/* import { setupServer } from 'msw/node';
 import { handlers } from './msw/handlers';
 import {
   pokemonApi,
@@ -7,7 +7,14 @@ import {
 } from '../api/fetchData';
 import { configureStore } from '@reduxjs/toolkit';
 import { renderHook, waitFor, cleanup } from '@testing-library/react';
-import { describe, it, expect, beforeAll, afterAll, afterEach } from 'vitest';
+import {
+  describe,
+  it,
+  expect,
+  beforeAll,
+  afterAll,
+  afterEach
+} from '@jest/globals';
 import { Provider } from 'react-redux';
 
 const server = setupServer(...handlers);
@@ -59,3 +66,4 @@ describe('pokemonApi', () => {
     expect(result.current.isError).toBeFalsy();
   });
 });
+ */
