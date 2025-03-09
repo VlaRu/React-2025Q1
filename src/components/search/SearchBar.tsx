@@ -54,8 +54,6 @@ export function Search({ searchName, setSearchName, onSubmit }: SearchProps) {
         />
         <input type="submit" value="search" className="submit-search-btn" />
       </form>
-      <ResultList submitName={searchName} currentPage={currentPage} />
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <FlyoutPanel />
     </main>
   );
