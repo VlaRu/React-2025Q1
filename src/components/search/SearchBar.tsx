@@ -10,6 +10,12 @@ type NameData = {
   submitName: string
 };
 
+type SearchProps = {
+  searchName: string;
+  setSearchName: (name: string) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
 function useSearchQuery(defaultValue: string) {
   const storedValue =
     typeof window !== 'undefined' ? localStorage.getItem('name') : null;  const [query, setQuery] = useState<string>(storedValue);
@@ -21,16 +27,9 @@ function useSearchQuery(defaultValue: string) {
   return [query, setQuery] as const;
 }
 
-export function Search() {
+export function Search({ searchName, setSearchName, onSubmit }: SearchProps) {
   const router = useRouter();
   const { query } = router;
-
-  const [searchName, setSearchName] = useSearchQuery('');
-  const [localData, setLocalData] = useState<NameData>({
-    searchName: searchName || '',
-    submitName: searchName || ''
-  });
-
   const initialPage = Number(query.page) || 1;
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
 
@@ -38,36 +37,24 @@ export function Search() {
     setCurrentPage(initialPage);
   }, [initialPage, query.page]);
 
-  const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    router.push({
-      pathname: '/',
-      query: { name: localData.searchName, page: 1 }
-    });
-  };
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
     const validatedQuery = value.replace(/[^a-zA-Z0-9\s]/g, '');
-    setLocalData((prevState) => ({
-      ...prevState,
-      searchName: validatedQuery
-    }));
     setSearchName(validatedQuery);
   };
 
   return (
     <main className="main-section">
-      <form onSubmit={handleSubmitSearch} className="search-form">
+      <form onSubmit={onSubmit} className="search-form">
         <input
           placeholder="Search..."
-          value={localData.searchName}
+          value={searchName}
           onChange={handleSearchChange}
           className="input-search"
         />
         <input type="submit" value="search" className="submit-search-btn" />
       </form>
-      <ResultList submitName={localData.submitName} currentPage={currentPage} />
+      <ResultList submitName={searchName} currentPage={currentPage} />
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <FlyoutPanel />
     </main>
