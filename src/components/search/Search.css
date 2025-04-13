@@ -1,10 +1,10 @@
 .main-section {
+    width: auto;
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 90vw;
-    width: fit-content;
 }
 
 .search-form {
