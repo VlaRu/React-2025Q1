@@ -1,7 +1,7 @@
-import Cards from './Cards';
 import spinner from './../../assets/spinner.svg';
 import { useGetPokemonByNameQuery } from '../../api/fetchData';
 import { ResultListProps } from '../../utils/types';
+import Cards from '../cards/Cards';
 
 export function ResultList({ submitName, currentPage }: ResultListProps) {
   const { data, error, isLoading } = useGetPokemonByNameQuery({
