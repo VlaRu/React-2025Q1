@@ -14,15 +14,26 @@ export const pokemonApi = createApi({
         { queryName: string, page: number }
       >({
         query: ({ queryName, page }) => ({
-          url: `?page=${page}&pageSize=6&q=name:${queryName || '*'}`
+          url: `?page=${page}&pageSize=8&q=name:${queryName || '*'}`
         })
       }),
       getPokemonDetail: builder.query<PokemonDetailResponse, string>({
         query: (id) => `/${id}`
+      }),
+      getDataLength: builder.query<{ totalCount: number }, string>({
+        query: (queryName) => ({
+          url: `?page=1&pageSize=1&q=name:${queryName || '*'}`
+        }),
+        transformResponse: (response: { totalCount: number }) => ({
+          totalCount: response.totalCount
+        })
       })
     };
   }
 });
 
-export const { useGetPokemonByNameQuery, useGetPokemonDetailQuery } =
-  pokemonApi;
+export const {
+  useGetPokemonByNameQuery,
+  useGetPokemonDetailQuery,
+  useGetDataLengthQuery
+} = pokemonApi;
