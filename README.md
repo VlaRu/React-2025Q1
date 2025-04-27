@@ -1,33 +1,70 @@
-## This repository will include tasks such as:
-- Class components. Error boundary.
-- React Routing. Tests.
-- Redux. Redux Toolkit, RTK Query. Context api
-- Next.js. Server Side Rendering
-- React forms
+# React-Pokemon Api
 
-## Stack: React | Redux/ RTK | TS | Eslint | Prettier | Husky | Vite |Vitest
-## Deploy [link](https://react-ts-pokemon.netlify.app/)
+## Stack: 
+- React 
+- Redux 
+- hooks: Context API , useState , useEffect
+- RTK query 
+- TS 
+- Eslint Prettier Husky 
+- Vite 
+- Vitest
 
-![alt text](image.png)
+![image](./pokemon-scr.png)
 
-## Main Feature
-- RTK query is used for api calls 
-- Selected items are managed through the redux store, selected items are persistent across pages
-- Context API: to control the application theme
-- Downloading selected items to the csv format
-- Open/Close Detail panel with picking element
-- Searching by name element from API data
-- Pagination
+## Implemented Features
 
-## technical feature
-- Husky to run tests on the pre-push hook, ensuring that tests are automatically executed before any code is pushed, , checking and fixing linter, checking correct commit msg text
+- Fetched data from API using RTK Query
+- Fetched Pokémon data by name from the server.
+  - Persist search history in Local Storage to restore previous search results on new sessions.
+- Implement Pagination by sending a request to the server, current page display in the browser URL
+- Display details card on the same page, display id the selected item in the browser URL
+- Managed selections with Redux store
+- Added CSV download for selected items
+- Appearing and hidden Flyout with Unselect/Download buttons
+- Implemented Theme switching (Context API)
+- UI effects:
+  - Added card hover animations
+  - Responsible and adaptive for mobile devises
 
-## move to another branch
-### install depends
-```bash
-npm i
-```
-### starts a local development server
-```bash
+### Config Utils
+
+- Created a template file commitlint.config.cjs for validating commit message naming conventions
+
+## Deploy [link]()
+
+## Install application
+
+1. Clone the project with `git clone`
+2. Run `npm i` to install dependencies
+3. Run `npm run dev` to start local development server
+
+### Provided scripts
+
+```sh
 npm run dev
 ```
+
+Start local development server
+
+```sh
+npm run build
+```
+
+Build project in production mode for further deployment
+
+```sh
+npm run format:fix
+```
+
+`Prettier` command fixes issues
+
+```sh
+npm run lint
+```
+Eslint check for errors and coding style issues.
+
+```sh
+npm husky init
+```
+Setting up husky in a project
