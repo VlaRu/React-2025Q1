@@ -31,14 +31,50 @@ export function DetailedCard({ id, handleCloseCard }: DetailProps) {
       <button className="close-detail_btn" onClick={handleCloseCard}>
         X
       </button>
-      <img
-        src={data.data.images?.small || ''}
-        alt="pokemon-img"
-        className="detail-img"
-      />
-      <div className="detail-text_container">
-        <h2>{data.data.name}</h2>
-        <p>Description: {data.data.flavorText || 'description available'}</p>
+      <div className="detail-content-container">
+        <div className="detail-img_container">
+          <img
+            src={data.data.images?.small || ''}
+            alt="pokemon-img"
+            className="detail-img"
+          />
+        </div>
+        <div className="detail-text_container">
+          <h2>{data.data.name}</h2>
+          <p>
+            <b>Description:</b>{' '}
+            {data.data.flavorText || 'description available'}
+          </p>
+          <h3>Weaknesses:</h3>
+          <p>
+            <b>type:</b>
+            {data.data.weaknesses?.[0]?.type || 'description available'}
+          </p>
+          <p>
+            <b>value:</b>{' '}
+            {data.data.weaknesses?.[0]?.value || 'description available'}
+          </p>
+          <p>
+            <b>Attacks:</b>
+          </p>
+          <p>
+            <b>Type:</b>{' '}
+            {data.data.attacks?.[0]?.name || 'description available'}
+          </p>
+          <p>
+            <b>Damage:</b>
+            {data.data.attacks?.[0]?.damage || 'description available'}
+          </p>
+          <p>
+            <b>Converted Energy Cost:</b>{' '}
+            {data.data.attacks?.[0]?.convertedEnergyCost ||
+              'description available'}
+          </p>
+          <p>
+            <b>Text:</b>{' '}
+            {data.data.attacks?.[0]?.text || 'description available'}
+          </p>
+        </div>
       </div>
     </div>
   );

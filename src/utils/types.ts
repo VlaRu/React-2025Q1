@@ -1,21 +1,36 @@
-export type PokemonDetailResponse = {
+type PokemonDetailResponse = {
   data: DataDetail
 };
-export interface DataDetail {
+
+interface DataDetail {
   id: string;
   images: {
     small?: string
   };
   name: string;
   flavorText: string;
+  weaknesses?: Weaknesses[] | undefined;
+  attacks?: Attacks[] | undefined;
 }
 
-export type DataFetchingState = {
+type Weaknesses = {
+  type?: string,
+  value?: string
+};
+
+type Attacks = {
+  name?: string,
+  convertedEnergyCost?: string,
+  damage?: string,
+  text?: string
+};
+
+type DataFetchingState = {
   data: pokemonType[],
   isLoading?: boolean
 };
 
-export type pokemonType = {
+type pokemonType = {
   name: string,
   id: string,
   flavorText: string,
@@ -25,7 +40,34 @@ export type pokemonType = {
   }
 };
 
-export type ResultListProps = {
+type ResultListProps = {
   submitName: string,
   currentPage: number
+};
+
+type ThemeContextType = {
+  theme: number,
+  setTheme: (theme: number) => void
+};
+
+type NameData = {
+  searchName: string,
+  submitName: string
+};
+
+interface SearchProps {
+  setLocalData: React.Dispatch<React.SetStateAction<NameData>>;
+  setSearchName: (value: string) => void;
+  localData: NameData;
+}
+
+export type {
+  PokemonDetailResponse,
+  DataDetail,
+  DataFetchingState,
+  pokemonType,
+  ResultListProps,
+  ThemeContextType,
+  NameData,
+  SearchProps
 };
