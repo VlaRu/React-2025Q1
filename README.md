@@ -1,5 +1,8 @@
 # React-Pokemon Api
 
+## Source code [link](https://github.com/VlaRu/React-Pokemon-API/tree/app-state-management)
+## Deploy [link](https://react-ts-pokemon.netlify.app/)
+
 ## Stack: 
 - React 
 - Redux 
@@ -30,8 +33,6 @@
 ### Config Utils
 
 - Created a template file commitlint.config.cjs for validating commit message naming conventions
-
-## Deploy [link]()
 
 ## Install application
 
