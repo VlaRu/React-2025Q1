@@ -1,6 +1,10 @@
 .theme-container {
-    position: relative;
-    width: 100px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 80px;
     height: 35px;
     z-index: 1;
     margin-bottom: 40px;
@@ -9,11 +13,11 @@
 .styled-range {
     -webkit-appearance: none;
     appearance: none;
-    width: 100px;
+    width: 80px;
     height: 35px;
     background: transparent;
     border: 3px solid black;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: inset 0 0 10px #ffff00;
     outline: none;
     cursor: pointer;
@@ -54,3 +58,10 @@
     top: 30%;
     z-index: -1;
   }
+
+  @media screen and (max-width: 750px) {
+    .theme-container {
+      top: 0;
+      bottom: auto;
+    }
+}

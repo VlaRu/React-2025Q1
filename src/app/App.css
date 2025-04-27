@@ -8,10 +8,12 @@
 }
 
 .container.light {
-  background-color: #dfd6d6;
+  background-color: #dbe2de;
+  color: black;
 }
 
 .header {
   font-size: 32px;
   color: #ffff00;
+  margin-top: 40px;
 }
