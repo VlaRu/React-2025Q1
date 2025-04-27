@@ -1,14 +1,35 @@
-# React-2025Q1
+# React-Pokemon Api
 
-## This repository will include tasks such as:
+## Stack: 
+- React 
+- Redux 
+- hooks: Context API , useState , useEffect
+- RTK query 
+- TS 
+- Eslint Prettier Husky 
+- Vite 
+- Vitest
 
-- Class components. Error boundary.
-- React Routing. Tests.
-- Redux. Redux Toolkit, RTK Query. Context api
-- Next.js. Server Side Rendering
-- React forms
+![image](./pokemon-scr.png)
 
-## Stack: React | TS | Eslint | Prettier | Husky | Vite
+## Implemented Features
+
+- Fetched data from API using RTK Query
+- Fetched Pokémon data by name from the server.
+  - Persist search history in Local Storage to restore previous search results on new sessions.
+- Implement Pagination by sending a request to the server, current page display in the browser URL
+- Display details card on the same page, display id the selected item in the browser URL
+- Managed selections with Redux store
+- Added CSV download for selected items
+- Appearing and hidden Flyout with Unselect/Download buttons
+- Implemented Theme switching (Context API)
+- UI effects:
+  - Added card hover animations
+  - Responsible and adaptive for mobile devises
+
+### Config Utils
+
+- Created a template file commitlint.config.cjs for validating commit message naming conventions
 
 ## Deploy [link]()
 
