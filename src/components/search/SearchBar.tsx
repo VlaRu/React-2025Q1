@@ -11,7 +11,6 @@ export function Search({
 }: SearchProps) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [isFocused, setIsFocused] = useState(false);
 
   const handleSubmitSearch = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -37,7 +36,6 @@ export function Search({
   };
 
   const handleFocus = () => {
-    setIsFocused(true);
     setLocalData((prevState) => ({
       ...prevState,
       searchName: ''
@@ -53,7 +51,6 @@ export function Search({
           value={localData.searchName}
           onChange={handleSearchChange}
           onFocus={handleFocus}
-          onBlur={() => setIsFocused(false)}
           className="input-search"
         />
         <input type="submit" value="search" className="submit-search-btn" />
