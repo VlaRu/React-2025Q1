@@ -1,17 +1,13 @@
 import './App.css';
 import { Search } from '../components/search/SearchBar';
-import ErrorButton from '../components/error/ErrorButton';
-import { Routes } from 'react-router';
-import { Route } from 'react-router';
-import ErrorPage from '../components/error/404page';
-import { DetailedCard } from '../components/detail/Detail';
 import { createContext, useState } from 'react';
-import { Theme } from '../components/theme/Theme';
+import { FlyoutPanel } from '../components/flyout/Flyout';
+import { ResultList } from '../components/results/ResultList';
+import { Pagination } from '../components/pagination/Pagination';
+import { useSearchParams } from 'react-router-dom';
+import { useLocalStorage } from '../hooks/castomLocalStorage';
+import { NameData, ThemeContextType } from '../utils/types';
 
-type ThemeContextType = {
-  theme: number,
-  setTheme: (theme: number) => void
-};
 export const ThemeContext = createContext<ThemeContextType>({
   theme: 0,
   setTheme: () => {}
@@ -19,20 +15,35 @@ export const ThemeContext = createContext<ThemeContextType>({
 
 function App() {
   const [theme, setTheme] = useState(1);
+  const [searchParams] = useSearchParams();
+  const initialPage = Number(searchParams.get('page')) || 1;
+  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+  const [searchName, setSearchName] = useLocalStorage('');
+  const [localData, setLocalData] = useState<NameData>({
+    searchName: searchName || '',
+    submitName: searchName || ''
+  });
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={theme === 1 ? 'container' : 'container light'}>
-        <ErrorButton />
         <h1 className="header">Search pokemon!</h1>
-        <Theme />
-        <Routes>
-          <Route index path="/" element={<Search />} />
-          <Route
-            path="/pokemon/:id"
-            element={<DetailedCard id={''} handleCloseCard={() => {}} />}
+        <main className="main-section">
+          <Search
+            setLocalData={setLocalData}
+            setSearchName={setSearchName}
+            localData={localData}
           />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+          <ResultList
+            submitName={localData.submitName}
+            currentPage={currentPage}
+          />
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+          <FlyoutPanel />
+        </main>
       </div>
     </ThemeContext.Provider>
   );
