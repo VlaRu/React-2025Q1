@@ -24,14 +24,14 @@
     text-align: center;
     border-radius: 20px;
     border: 3px solid black;
-    box-shadow: inset 0 0 10px #ffff00;
+    box-shadow: inset 0 0 10px #ff0;
     padding: 20px 0;
     cursor: pointer;
     z-index: 0;
 }
 
 .container-card:hover {
-    box-shadow: inset 0 0 10px rgb(85, 255, 0);
+    box-shadow: inset 0 0 10px rgb(85 255 0);
 }
 
 .container-img_card {
@@ -105,7 +105,7 @@ input[type="checkbox"] {
     margin: 10px 40px 0 15px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (width <= 750px) {
     .container-cards {
         justify-content: center;
     }

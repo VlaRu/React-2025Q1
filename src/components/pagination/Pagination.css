@@ -2,7 +2,7 @@
   width: 300px;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0 150px 0;
+  margin: 40px 0 150px;
 }
 
 .btn-pagination {
@@ -15,5 +15,5 @@
 }
 
 .btn-pagination:hover {
-  box-shadow: inset 0 0 10px rgb(85, 255, 0);
+  box-shadow: inset 0 0 10px rgb(85 255 0);
 }

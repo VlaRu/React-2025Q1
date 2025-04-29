@@ -6,7 +6,7 @@
 - hooks: Context API , useState , useEffect
 - RTK query 
 - TS 
-- Eslint Prettier Husky 
+- Eslint Prettier Husky Stylelint
 - Vite 
 - Vitest
 
@@ -60,7 +60,7 @@ npm run format:fix
 `Prettier` command fixes issues
 
 ```sh
-npm run lint
+npm run lint:fix
 ```
 Eslint check for errors and coding style issues.
 
