@@ -104,3 +104,9 @@ input[type="checkbox"] {
     right: 0;
     margin: 10px 40px 0 15px;
 }
+
+@media screen and (max-width: 750px) {
+    .container-cards {
+        justify-content: center;
+    }
+}

@@ -27,7 +27,7 @@ export function DetailedCard({ id, handleCloseCard }: DetailProps) {
   }
 
   return (
-    <div data-testId="detailed-card" className="detail-container">
+    <div data-testid="detailed-card" className="detail-container">
       <button className="close-detail_btn" onClick={handleCloseCard}>
         X
       </button>
