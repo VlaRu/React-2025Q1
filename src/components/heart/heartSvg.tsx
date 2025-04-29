@@ -11,6 +11,11 @@ export function HeartIcon({ id }: { id: string }) {
   const selectedPokemon = useSelector(
     (state: RootState) => state.selectedPokemon.selectedPokemon
   );
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   const isChecked = selectedPokemon.includes(id);
 
   const handleCheckboxChange = () => {
@@ -24,7 +29,7 @@ export function HeartIcon({ id }: { id: string }) {
   };
 
   return (
-    <div className="heart-container">
+    <div className="heart-container" onClick={handleClick}>
       <label className="heart-checkbox">
         <input
           type="checkbox"

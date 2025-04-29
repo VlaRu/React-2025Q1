@@ -2,7 +2,6 @@ import { NameData, SearchProps } from '../../utils/types';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Search.css';
 import { Theme } from '../theme/Theme';
-import { useState } from 'react';
 
 export function Search({
   setLocalData,
